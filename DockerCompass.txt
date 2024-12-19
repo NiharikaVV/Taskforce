@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+  backend-golang:
+    build: ./backend-golang
+    ports:
+      - "8080:8080"
+  backend-rails:
+    build: ./backend-rails
+    ports:
+      - "3001:3001"
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: taskforce
+    ports:
+      - "5432:5432"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
